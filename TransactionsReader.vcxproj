@@ -141,7 +141,7 @@
   <ItemGroup>
     <ClCompile Include="DateHour.cpp" />
     <ClCompile Include="Transaction.cpp" />
-    <ClCompile Include="TransactionsReader.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DateHour.h" />

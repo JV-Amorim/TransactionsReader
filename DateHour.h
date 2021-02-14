@@ -1,5 +1,5 @@
-#ifndef DATE_HOUR
-#define DATE_HOUR
+#ifndef DATE_HOUR_H
+#define DATE_HOUR_H
 
 #include <string>
 #include "DateHourFormat.h"
