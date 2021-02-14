@@ -140,13 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DateHour.cpp" />
-    <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="TransactionReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DateHour.h" />
     <ClInclude Include="DateHourFormat.h" />
     <ClInclude Include="Transaction.h" />
+    <ClInclude Include="TransactionReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

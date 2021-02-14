@@ -11,7 +11,8 @@ namespace TransactionReader
 	public:
 		DateHour dateHour;
 		double price;
-		std::string product, paymentMethod, personName, city, state, country;
+		std::string product, paymentType, personName, city, state, country;
+		std::string toString();
 	};
 }
 

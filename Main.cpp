@@ -1,17 +1,20 @@
 #include <iostream>
+#include <vector>
 #include "DateHour.h"
 #include "Transaction.h"
+#include "TransactionReader.h"
 
 using namespace std;
 using namespace TransactionReader;
 
-const DateHourFormat APP_DATE_HOUR_FORMAT = DateHourFormat::UnitedStates;
-
 int main()
 {
-    DateHour dateHour = DateHour::parseToDateHour("01/02/2009 06:17", APP_DATE_HOUR_FORMAT);
+    vector<Transaction> transactions = readTransactionsFromFile("Data/transactions-data-1.txt");
 
-    cout << DateHour::dateHourToString(dateHour, APP_DATE_HOUR_FORMAT) << endl;
+    for (int i = 0; i < transactions.size(); i++)
+    {
+        cout << transactions[i].toString() << endl;
+    }
 
     return 0;
 }

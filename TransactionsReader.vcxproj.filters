@@ -18,10 +18,13 @@
     <ClCompile Include="DateHour.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Transaction.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="TransactionReader.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -34,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="DateHourFormat.h">
       <Filter>Arquivos de Origem</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionReader.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
