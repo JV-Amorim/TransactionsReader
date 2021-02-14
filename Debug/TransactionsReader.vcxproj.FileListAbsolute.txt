@@ -1,4 +1,0 @@
-C:\Users\JVAmorim\Documents\2021\Projetos\JV\TransactionsReader\Debug\TransactionsReader.exe
-C:\Users\JVAmorim\Documents\2021\Projetos\JV\TransactionsReader\Debug\TransactionsReader.pdb
-C:\Users\JVAmorim\Documents\Projetos\JV\TransactionsReader\Debug\TransactionsReader.exe
-C:\Users\JVAmorim\Documents\Projetos\JV\TransactionsReader\Debug\TransactionsReader.pdb
