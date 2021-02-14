@@ -20,6 +20,6 @@ namespace TransactionReader
             resultPrice = integerPortion + "." + decimalPortion.substr(0, 2);
         }
 
-        return dateHour.toString(APP_DATE_HOUR_FORMAT) + ";" + product + ";" + resultPrice + ";" + paymentType + ";" + personName + ";" + city + ";" + state + ";" + country;
+        return dateHour.toString() + ";" + product + ";" + resultPrice + ";" + paymentType + ";" + personName + ";" + city + ";" + state + ";" + country;
     }
 }

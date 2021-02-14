@@ -18,7 +18,7 @@ namespace TransactionReader
 		minute = t_minute;
 	}
 
-	string DateHour::toString(DateHourFormat t_format)
+	string DateHour::toString()
 	{
 		string resultDateHour = "";
 
@@ -44,30 +44,31 @@ namespace TransactionReader
 			resultMinute = "0" + resultMinute;
 		}
 
-		if (t_format == DateHourFormat::Brazil)
+		if (APP_DATE_HOUR_FORMAT == DateHourFormat::Brazil)
 		{
 			resultDateHour = resultDay + "/" + resultMonth + "/" + to_string(year) + " " + resultHour + ":" + resultMinute;
 		}
-		else if (t_format == DateHourFormat::UnitedStates)
+		else if (APP_DATE_HOUR_FORMAT == DateHourFormat::UnitedStates)
 		{
 			resultDateHour = resultMonth + "/" + resultDay + "/" + to_string(year) + " " + resultHour + ":" + resultMinute;
 		}
 		else
 		{
-			resultDateHour = "00/00/0000";
+			cout << "O formato de data e hora nao foi definido na aplicacao. Nao sera possivel continuar." << endl;
+			abort();
 		}
 
 		return resultDateHour;
 	}
 
-	DateHour DateHour::parseToDateHour(string t_contentToParse, DateHourFormat t_format)
+	DateHour DateHour::parseToDateHour(string t_contentToParse)
 	{
 		DateHour dateHour;
 
 		char* contentCopy = _strdup(t_contentToParse.c_str());
 		char* context = NULL;
 
-		if (t_format == DateHourFormat::Brazil)
+		if (APP_DATE_HOUR_FORMAT == DateHourFormat::Brazil)
 		{
 			dateHour.day = stoi(strtok_s(contentCopy, "/", &context));
 			dateHour.month = stoi(strtok_s(NULL, "/", &context));
@@ -75,13 +76,18 @@ namespace TransactionReader
 			dateHour.hour = stoi(strtok_s(NULL, ":", &context));
 			dateHour.minute = stoi(strtok_s(NULL, "\0", &context));
 		}
-		else if (t_format == DateHourFormat::UnitedStates)
+		else if (APP_DATE_HOUR_FORMAT == DateHourFormat::UnitedStates)
 		{
 			dateHour.month = stoi(strtok_s(contentCopy, "/", &context));
 			dateHour.day = stoi(strtok_s(NULL, "/", &context));
 			dateHour.year = stoi(strtok_s(NULL, " ", &context));
 			dateHour.hour = stoi(strtok_s(NULL, ":", &context));
 			dateHour.minute = stoi(strtok_s(NULL, "\0", &context));
+		}
+		else
+		{
+			cout << "O formato de data e hora nao foi definido na aplicacao. Nao sera possivel continuar." << endl;
+			abort();
 		}
 
 		free(contentCopy);

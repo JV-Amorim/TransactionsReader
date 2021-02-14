@@ -14,11 +14,11 @@ namespace TransactionReader
 
 		if (openedFile.fail())
 		{
-			cout << "Não foi possível abrir o arquivo especificado.";
+			cout << "Nao foi possivel abrir o arquivo especificado.";
 			abort();
 		}
 
-		// Lendo a primeira linha (cabeçalho do arquivo).
+		// Lendo a primeira linha do arquivo (cabeçalho dos dados).
 		getline(openedFile, output);
 
 		vector<Transaction> transactions;
@@ -30,7 +30,7 @@ namespace TransactionReader
 			Transaction newTransaction;
 
 			string dateHourString = strtok_s(contentCopy, ";", &context);
-			newTransaction.dateHour = DateHour::parseToDateHour(dateHourString, APP_DATE_HOUR_FORMAT);
+			newTransaction.dateHour = DateHour::parseToDateHour(dateHourString);
 
 			newTransaction.product = strtok_s(NULL, ";", &context);
 			newTransaction.price = atof(strtok_s(NULL, ";", &context));
@@ -48,5 +48,32 @@ namespace TransactionReader
 		openedFile.close();
 
 		return transactions;
+	}
+
+	vector<Transaction> filterTransactions(vector<Transaction> t_transactions, string t_searchDate)
+	{
+		vector<Transaction> filteredTransactions;
+
+		for (int i = 0; i < t_transactions.size(); i++)
+		{
+			char* currentDateHourStr = _strdup(t_transactions[i].dateHour.toString().c_str());
+			char* context = NULL;
+			string currentDateStr = strtok_s(currentDateHourStr, " ", &context);
+
+			if (currentDateStr == t_searchDate)
+			{
+				filteredTransactions.push_back(t_transactions[i]);
+			}
+		}
+
+		return filteredTransactions;
+	}
+
+	void printTransactions(vector<Transaction> t_transactions)
+	{
+		for (int i = 0; i < t_transactions.size(); i++)
+		{
+			cout << i + 1 << ". " << t_transactions[i].toString() << endl;
+		}
 	}
 }
