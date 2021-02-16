@@ -10,8 +10,9 @@ namespace TransactionReader
 	{
 	public:
 		DateHour dateHour;
-		double price;
-		std::string product, paymentType, personName, city, state, country;
+		double price{ 0 };
+		std::string product{ "" }, paymentType{ "" }, personName{ "" }, city{ "" }, state{ "" }, country{ "" };
+
 		std::string toString();
 	};
 }

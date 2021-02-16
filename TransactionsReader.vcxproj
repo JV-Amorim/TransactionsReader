@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="DateHour.h" />
     <ClInclude Include="DateHourFormat.h" />
+    <ClInclude Include="Main.h" />
     <ClInclude Include="Transaction.h" />
     <ClInclude Include="TransactionReader.h" />
   </ItemGroup>

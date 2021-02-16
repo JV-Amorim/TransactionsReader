@@ -12,6 +12,7 @@ namespace TransactionReader
 	{
 	public:
 		int day{ 0 }, month{ 0 }, year{ 0 }, hour{ 0 }, minute{ 0 };
+
 		DateHour();
 		DateHour(int t_day, int t_month, int t_year, int t_hour, int t_minute);
 		std::string toString();

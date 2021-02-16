@@ -76,4 +76,9 @@ namespace TransactionReader
 			cout << i + 1 << ". " << t_transactions[i].toString() << endl;
 		}
 	}
+
+	void saveTransactionsToFile(vector<Transaction> t_transactions, string t_fileName)
+	{
+		cout << "Salvos!";
+	}
 }

@@ -35,10 +35,13 @@
     <ClInclude Include="DateHour.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="DateHourFormat.h">
-      <Filter>Arquivos de Origem</Filter>
-    </ClInclude>
     <ClInclude Include="TransactionReader.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="DateHourFormat.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
