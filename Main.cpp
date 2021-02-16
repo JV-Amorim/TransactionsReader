@@ -31,7 +31,7 @@ void showInitialView()
     }
     else
     {
-        cout << "Nao foi digitada uma opcao valida." << endl;
+        cout << "Erro: nao foi digitada uma opcao valida. A aplicacao sera encerrada." << endl;
         return;
     }
 }
@@ -44,6 +44,12 @@ void showFileSelectionView()
     cin >> fileName;
 
     vector<Transaction> transactions = readTransactionsFromFile("Data/" + fileName);
+
+    if (transactions.empty())
+    {
+        cout << endl << "Erro: nao foi possivel abrir o arquivo especificado ou ele nao possui transacoes. A aplicacao sera encerrada." << endl;
+        return;
+    }
 
     cout << endl << "O arquivo foi lido com sucesso. O que deseja fazer com os dados?" << endl;
     cout << "Digite uma opcao:" << endl;
@@ -79,7 +85,7 @@ void showSearchView(vector<Transaction> t_transactions)
     }
     else
     {
-        cout << "O formato de data e hora nao foi definido na aplicacao. Nao sera possivel continuar." << endl;
+        cout << "Erro: o formato de data e hora nao foi definido na aplicacao. A aplicacao sera encerrada." << endl;
         return;
     }
 
@@ -90,7 +96,7 @@ void showSearchView(vector<Transaction> t_transactions)
 
     cout << endl << "RESULTADO DA PESQUISA:" << endl;
 
-    if (filteredTransactions.size() == 0)
+    if (filteredTransactions.empty())
     {
         cout << "Nenhuma transacao com a data informada foi encontrada." << endl;
     }
@@ -114,10 +120,20 @@ void showSaveFileView(vector<Transaction> t_transactions)
         return;
     }
 
-    cout << endl << "Digite um nome para o arquivo (com a extensao):" << endl;
+    cout << endl << "Nota: o arquivo sera salvo na pasta \"Data\" e sobreescrevera qualquer arquivo com o mesmo nome ja existente." << endl;
+    cout << "Digite um nome para o arquivo (com a extensao):" << endl;
 
     string fileName = "";
     cin >> fileName;
 
-    saveTransactionsToFile(t_transactions, fileName);
+    bool isSuccessful = saveTransactionsToFile(t_transactions, "Data/" + fileName);
+
+    if (isSuccessful)
+    {
+        cout << endl << "Arquivo salvo com sucesso!" << endl;
+    }
+    else
+    {
+        cout << "Erro: nao foi possivel salvar o arquivo. A aplicacao sera encerrada." << endl;
+    }
 }

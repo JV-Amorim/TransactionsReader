@@ -10,7 +10,7 @@ namespace TransactionReader
 	std::vector<Transaction> readTransactionsFromFile(std::string t_fileName);
 	std::vector<Transaction> filterTransactions(std::vector<Transaction> t_transactions, std::string t_searchDate);
 	void printTransactions(std::vector<Transaction> t_transactions);
-	void saveTransactionsToFile(std::vector<Transaction> t_transactions, std::string t_fileName);
+	bool saveTransactionsToFile(std::vector<Transaction> t_transactions, std::string t_fileName);
 }
 
 #endif

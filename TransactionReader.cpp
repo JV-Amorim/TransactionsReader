@@ -7,21 +7,21 @@ using namespace std;
 
 namespace TransactionReader
 {
+	string fileHeader;
+
 	vector<Transaction> readTransactionsFromFile(string t_fileName)
 	{
 		ifstream openedFile(t_fileName);
 		string output;
+		vector<Transaction> transactions;
 
 		if (openedFile.fail())
 		{
-			cout << "Nao foi possivel abrir o arquivo especificado.";
-			abort();
+			openedFile.close();
+			return {};
 		}
 
-		// Lendo a primeira linha do arquivo (cabeçalho dos dados).
-		getline(openedFile, output);
-
-		vector<Transaction> transactions;
+		getline(openedFile, fileHeader);
 
 		while (getline(openedFile, output))
 		{
@@ -46,7 +46,6 @@ namespace TransactionReader
 		}
 
 		openedFile.close();
-
 		return transactions;
 	}
 
@@ -77,8 +76,24 @@ namespace TransactionReader
 		}
 	}
 
-	void saveTransactionsToFile(vector<Transaction> t_transactions, string t_fileName)
+	bool saveTransactionsToFile(vector<Transaction> t_transactions, string t_fileName)
 	{
-		cout << "Salvos!";
+		ofstream createdFile(t_fileName);
+
+		if (createdFile.fail())
+		{
+			createdFile.close();
+			return false;
+		}
+
+		createdFile << fileHeader << endl;
+
+		for (int i = 0; i < t_transactions.size(); i++)
+		{
+			createdFile << t_transactions[i].toString() << endl;
+		}
+
+		createdFile.close();
+		return true;
 	}
 }
