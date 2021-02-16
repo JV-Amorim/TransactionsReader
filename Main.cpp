@@ -52,24 +52,34 @@ void showFileSelectionView()
     }
 
     cout << endl << "O arquivo foi lido com sucesso. O que deseja fazer com os dados?" << endl;
-    cout << "Digite uma opcao:" << endl;
-    cout << "[1] Mostrar todas as transacoes;" << endl << "[2] Pesquisar transacoes de acordo com uma certa data;" << endl << "[0] Sair" << endl;
 
     int choice = -1;
-    cin >> choice;
 
-    if (choice == 0)
+    while (true)
     {
-        return;
-    }
-    else if (choice == 1)
-    {
-        cout << endl;
-        printTransactions(transactions);
-    }
-    else if (choice == 2)
-    {
-        showSearchView(transactions);
+        cout << endl << "Digite uma opcao:" << endl;
+        cout << "[1] Mostrar todas as transacoes;" << endl << "[2] Pesquisar transacoes de uma certa data;" << endl << "[0] Sair" << endl;
+
+        cin >> choice;
+
+        if (choice == 0)
+        {
+            return;
+        }
+        else if (choice == 1)
+        {
+            cout << endl;
+            printTransactions(transactions);
+        }
+        else if (choice == 2)
+        {
+            showSearchView(transactions);
+        }
+        else
+        {
+            cout << "Erro: nao foi digitada uma opcao valida. A aplicacao sera encerrada." << endl;
+            return;
+        }
     }
 }
 
@@ -85,7 +95,7 @@ void showSearchView(vector<Transaction> t_transactions)
     }
     else
     {
-        cout << "Erro: o formato de data e hora nao foi definido na aplicacao. A aplicacao sera encerrada." << endl;
+        cout << "Erro: o formato de data e hora nao foi definido na aplicacao." << endl;
         return;
     }
 
@@ -134,6 +144,6 @@ void showSaveFileView(vector<Transaction> t_transactions)
     }
     else
     {
-        cout << "Erro: nao foi possivel salvar o arquivo. A aplicacao sera encerrada." << endl;
+        cout << "Erro: nao foi possivel salvar o arquivo." << endl;
     }
 }
